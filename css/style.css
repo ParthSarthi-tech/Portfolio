@@ -605,104 +605,6 @@ main {
 .project-links a:hover::after {
   transform: translateX(6px);
 }
-/*======================================================
-    MINI PROJECTS SECTION
-===================================================== */
-.project-card {
-  margin-top: 3rem;
-  padding: 3.5rem;
-  border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-  border: 2px solid var(--border-light);
-  position: relative;
-  box-shadow: var(--shadow-lg);
-  transition: var(--transition-slow);
-  overflow: hidden;
-}
-
-.project-card::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light), var(--accent));
-  background-size: 400% 400%;
-  border-radius: var(--radius-xl);
-  z-index: -1;
-  opacity: 0;
-  animation: gradientRotate 8s ease infinite;
-  transition: var(--transition-base);
-}
-
-@keyframes gradientRotate {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-.project-card:hover {
-  transform: translateY(-12px) scale(1.01);
-  box-shadow: var(--shadow-xl), var(--shadow-glow);
-}
-
-.project-card:hover::before {
-  opacity: 1;
-}
-
-.project-card h3 {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 1.2rem;
-  color: var(--text-primary);
-  letter-spacing: -0.5px;
-}
-
-.project-card p {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-  max-width: 100%;
-}
-
-.project-links {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.project-links a {
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--accent);
-  text-decoration: none;
-  position: relative;
-  padding: 0.8rem 1.5rem;
-  border: 2px solid var(--accent);
-  border-radius: var(--radius-md);
-  transition: var(--transition-base);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.project-links a::after {
-  content: "→";
-  transition: var(--transition-base);
-}
-
-.project-links a:hover {
-  background: var(--accent);
-  color: #ffffff;
-  transform: translateX(4px);
-  box-shadow: var(--shadow-md);
-}
-
-.project-links a:hover::after {
-  transform: translateX(6px);
-}
-
 
 /* =====================================================
    STYLISH CONTACT SECTION
@@ -862,4 +764,87 @@ main {
   .hero-name {
     font-size: 2.5rem;
   }
+}
+/* =====================================================
+   MINI PROJECTS — SUBTLE & CONSISTENT
+===================================================== */
+
+.miniprojects {
+  background: var(--bg-soft);
+  box-shadow: none;
+}
+
+.miniprojects h2 {
+  font-size: 2.1rem;
+  opacity: 0.9;
+}
+
+/* Grid layout */
+.miniprojects-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+/* Mini cards */
+.mini-card {
+  padding: 1.6rem 1.8rem;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  transition: var(--transition-base);
+  position: relative;
+}
+
+/* Softer than main project */
+.mini-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 118, 110, 0.05),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: var(--transition-base);
+}
+
+.mini-card:hover::before {
+  opacity: 1;
+}
+
+.mini-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Text hierarchy */
+.mini-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.mini-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Optional links inside mini card */
+.mini-card a {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.mini-card a:hover {
+  text-decoration: underline;
 }
